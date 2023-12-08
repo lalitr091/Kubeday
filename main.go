@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/base64"
+	"ftm"
 	"html/template"
 	"net/http"
 
@@ -25,7 +26,7 @@ func Base64Encode(data []byte) string {
 func HomePageHandler(w http.ResponseWriter, r *http.Request) {
 	url := "https://www.initializ.ai/early-access"
 	size := 256 // Set the desired size of the QR code
-
+	fmt.Println("Request Called")
 	// Generate the QR code
 	qrCodeImage, err := generateQRCode(url, size)
 	if err != nil {
@@ -127,5 +128,6 @@ func HomePageHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.HandleFunc("/", HomePageHandler)
+	fmt.Println("Server up at port 8080")
 	http.ListenAndServe(":8080", nil)
 }
