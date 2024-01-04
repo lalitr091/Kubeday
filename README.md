@@ -1,2 +1,2 @@
 # Kubeday Demo
-Demo Kubeday India..
+Demo Kubeday India
